@@ -1,0 +1,18 @@
+# file sistem
+.DS_Store
+Thumbs.db
+
+# log
+*.log
+
+# environment
+.env
+
+# vendor (kalau nanti pakai composer)
+vendor/
+
+# node (kalau pakai frontend tools)
+node_modules/
+
+# file upload (opsional)
+uploads/
