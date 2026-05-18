@@ -1,7 +1,9 @@
-<footer class="bg-dark text-white text-center p-3 mt-5">
+<footer class="bg-dark text-white text-center p-3 mt-auto">
+
     <p class="mb-0">
         © 2026 Web Laundry | Rekayasa Perangkat Lunak
     </p>
+
 </footer>
 
 <script

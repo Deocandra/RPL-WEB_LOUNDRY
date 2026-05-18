@@ -1,14 +1,23 @@
 <?php
+
 include 'config/koneksi.php';
 include 'templates/header.php';
 include 'templates/navbar.php';
 
-$query = mysqli_query($conn, "SELECT * FROM layanan");
+$query = mysqli_query(
+    $conn,
+    "SELECT * FROM layanan"
+);
+
 ?>
 
-<!-- HERO SECTION -->
-<section class="hero text-center text-white d-flex align-items-center">
+<!-- HERO -->
+
+<section
+class="hero text-white d-flex align-items-center text-center">
+
     <div class="container">
+
         <h1 class="fw-bold">
             Laundry Cepat & Bersih
         </h1>
@@ -17,14 +26,22 @@ $query = mysqli_query($conn, "SELECT * FROM layanan");
             Solusi laundry terpercaya untuk pakaian Anda
         </p>
 
-        <a href="#booking" class="btn btn-warning btn-lg">
+        <a
+            href="#booking"
+            class="btn btn-warning btn-lg"
+        >
             Booking Sekarang
         </a>
+
     </div>
+
 </section>
 
 <!-- LAYANAN -->
-<section id="layanan" class="container mt-5">
+
+<section
+id="layanan"
+class="container mt-5">
 
     <h2 class="text-center mb-4">
         Layanan Kami
@@ -45,7 +62,9 @@ $query = mysqli_query($conn, "SELECT * FROM layanan");
                         </h4>
 
                         <h5 class="text-primary">
-                            Rp <?= number_format($data['harga_per_kg']); ?>/kg
+                            Rp
+                            <?= number_format($data['harga_per_kg']); ?>
+                            /kg
                         </h5>
 
                         <p>
@@ -65,7 +84,10 @@ $query = mysqli_query($conn, "SELECT * FROM layanan");
 </section>
 
 <!-- BOOKING -->
-<section id="booking" class="container mt-5">
+
+<section
+id="booking"
+class="container mt-5">
 
     <div class="card shadow p-4">
 
@@ -73,29 +95,39 @@ $query = mysqli_query($conn, "SELECT * FROM layanan");
             Form Booking Laundry
         </h2>
 
-        <form action="customer/transaksi/tambah.php" method="POST">
+        <form
+            action="customer/transaksi/tambah.php"
+            method="POST"
+        >
 
             <div class="mb-3">
-                <label>Nama</label>
+
+                <label>Nama Customer</label>
+
                 <input
                     type="text"
-                    name="nama"
+                    name="nama_customer"
                     class="form-control"
                     required
                 >
+
             </div>
 
             <div class="mb-3">
+
                 <label>No HP</label>
+
                 <input
                     type="text"
                     name="no_hp"
                     class="form-control"
                     required
                 >
+
             </div>
 
             <div class="mb-3">
+
                 <label>Pilih Layanan</label>
 
                 <select
@@ -109,24 +141,30 @@ $query = mysqli_query($conn, "SELECT * FROM layanan");
                     </option>
 
                     <?php
+
                     $layanan = mysqli_query(
                         $conn,
                         "SELECT * FROM layanan"
                     );
 
                     while($l = mysqli_fetch_assoc($layanan)) {
+
                     ?>
 
-                        <option value="<?= $l['id_layanan']; ?>">
-                            <?= $l['nama_layanan']; ?>
-                        </option>
+                    <option
+                        value="<?= $l['id_layanan']; ?>"
+                    >
+                        <?= $l['nama_layanan']; ?>
+                    </option>
 
                     <?php } ?>
 
                 </select>
+
             </div>
 
             <div class="mb-3">
+
                 <label>Berat Laundry (Kg)</label>
 
                 <input
@@ -136,6 +174,7 @@ $query = mysqli_query($conn, "SELECT * FROM layanan");
                     class="form-control"
                     required
                 >
+
             </div>
 
             <button class="btn btn-primary w-100">
